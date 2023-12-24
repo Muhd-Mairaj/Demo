@@ -67,10 +67,10 @@ public class Book {
     }
     
     public void display() {
-        System.out.println("Title: " + this.title);
-        System.out.println("Author: " + this.author);
-        System.out.println("ISBN: " + this.ISBN);
-        System.out.println("Borrowed: " + this.borrowed);
+        System.out.println("- Title: " + this.title);
+        System.out.println("  Author: " + this.author);
+        System.out.println("  ISBN: " + this.ISBN);
+//        System.out.println("Borrowed: " + this.borrowed);
     }
     
     public String toString() {
