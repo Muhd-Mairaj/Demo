@@ -6,9 +6,8 @@ public class Library {
     private ArrayList<Book> books = new ArrayList<>();
 
     public Book findBooksByTitle(String title) {
-        for (int i = 0; i < this.books.size(); i++) {
-            Book book = this.books.get(i);
-            if (book.getTitle().equals(title)) {
+        for (Book book: this.books) {
+            if (book.getTitle().equalsIgnoreCase(title)) {
                 book.display();
                 return book;
             }
@@ -21,9 +20,8 @@ public class Library {
         // Return a list of all books from the author, or null
         ArrayList<Book> result = new ArrayList<>();
         
-        for (int i = 0; i < this.books.size(); i++) {
-            Book book = this.books.get(i);
-            if (book.getAuthor().equals(author)) {
+        for (Book book: this.books) {
+            if (book.getAuthor().equalsIgnoreCase(author)) {
                 book.display();
                 result.add(book);
             }
@@ -33,9 +31,8 @@ public class Library {
     }
     
     public Book findBookByISBN(String ISBN){
-        for (int i = 0; i < this.books.size(); i++) {
-            Book book = this.books.get(i);
-            if (book.getISBN().equals(ISBN)) {
+        for (Book book: this.books) {
+            if (book.getISBN().equalsIgnoreCase(ISBN)) {
                 return book;
             }
         }
@@ -153,8 +150,8 @@ public class Library {
     
     public void displayLibrary() {
         System.out.println("Books in the library, sorted by title:");
-        for (int i = 0; i < this.books.size(); i++) {
-            this.books.get(i).display();
+        for (Book book: this.books) {
+            book.display();
             System.out.println();
         }
     }
