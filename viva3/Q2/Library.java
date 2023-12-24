@@ -19,7 +19,8 @@ public class Library {
     public ArrayList<Book> findBooksByAuthor(String author) {
         // Return a list of all books from the author, or null
         ArrayList<Book> result = new ArrayList<>();
-        
+
+        System.out.println("Books by author '" + author + "':");
         for (Book book: this.books) {
             if (book.getAuthor().equalsIgnoreCase(author)) {
                 book.display();
