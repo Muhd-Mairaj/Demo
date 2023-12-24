@@ -47,7 +47,7 @@ public class Library {
         int d1 = ISBN.charAt(ISBN.length()-1) - '0';
         int d2 = ISBN.charAt(ISBN.length()-2) - '0';
         
-        if (isPrime(Integer.valueOf(d1)) || isPrime(Integer.valueOf(d2))) {
+        if (isPrime(d1) || isPrime(d2)) {
             return false;
         }
         
