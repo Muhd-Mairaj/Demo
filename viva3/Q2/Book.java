@@ -46,14 +46,6 @@ public class Book {
         this.borrowed = borrowed;
     }
     
-    public boolean equals(Book book) {
-        if (this.ISBN.equals(book.ISBN)) {
-            return true;
-        }
-        
-        return false;
-    }
-    
     public int compareTo(Book book) {
         return this.title.compareTo(book.title);
     }
