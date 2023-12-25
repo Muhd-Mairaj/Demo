@@ -79,12 +79,14 @@ public class Library {
     }
     
     public boolean removeBook(String ISBN) {
-        Book book = findBookByISBN(ISBN);
-        if (book == null) {
-            return false;
+        for (Book book: this.books) {
+            if (book.getISBN().equals(ISBN)) {
+                this.books.remove(book);
+                return true;
+            }
         }
-
-        return this.books.remove(book);
+        
+        return false;
     }
     
     public void sortBooks() {
