@@ -52,13 +52,17 @@ public class Library {
             return false;
         }
         
-        Book book = this.findBookByISBN(ISBN);
-        if (book == null) {
-            return false;
+        for (Book book: this.books) {
+            if (book.getISBN().equals(ISBN)) {
+                if (book.getBorrowed()) { //  check if the book is already borrowed
+                    return false;
+                }
+                book.setBorrowed(true);
+                return true;
+            }
         }
         
-        book.setBorrowed(true);
-        return true;
+        return false;
     }
     
     public void returnBook(Book book) {
