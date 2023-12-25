@@ -5,15 +5,18 @@ import java.util.ArrayList;
 public class Library {
     private ArrayList<Book> books = new ArrayList<>();
 
-    public Book findBooksByTitle(String title) {
+    public ArrayList<Book> findBooksByTitle(String title) {
+        // Return a list of all books with the title, or null
+        ArrayList<Book> result = new ArrayList<>();
+        
         for (Book book: this.books) {
             if (book.getTitle().equalsIgnoreCase(title)) {
                 book.display();
-                return book;
+                result.add(book);
             }
         }
         
-        return null;
+        return (result.isEmpty()) ? null : result;
     }
     
     public ArrayList<Book> findBooksByAuthor(String author) {
