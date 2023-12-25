@@ -36,16 +36,6 @@ public class Library {
         return (result.isEmpty()) ? null : result;
     }
     
-    public Book findBookByISBN(String ISBN){
-        for (Book book: this.books) {
-            if (book.getISBN().equalsIgnoreCase(ISBN)) {
-                return book;
-            }
-        }
-        
-        return null;
-    }
-    
     public boolean borrowBook(String ISBN) {
         int d1 = ISBN.charAt(ISBN.length()-1) - '0';
         int d2 = ISBN.charAt(ISBN.length()-2) - '0';
