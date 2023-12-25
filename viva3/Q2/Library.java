@@ -83,6 +83,7 @@ public class Library {
     
     public void sortBooks() {
         Collections.sort(this.books, new SortBookByTitleComparator());
+        System.out.println("Books in the library, sorted by title:");
         this.displayLibrary();
     }
     
@@ -100,7 +101,6 @@ public class Library {
     }
         
     public void displayLibrary() {
-        System.out.println("Books in the library, sorted by title:");
         for (Book book: this.books) {
             book.display();
             System.out.println();
