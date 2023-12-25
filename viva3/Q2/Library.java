@@ -1,6 +1,8 @@
 package Q2;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class Library {
     private ArrayList<Book> books = new ArrayList<>();
@@ -90,7 +92,7 @@ public class Library {
     }
     
     public void sortBooks() {
-        mergeSortBooks(this.books, 0, this.books.size() - 1);
+        Collections.sort(this.books, new SortBookByTitleComparator());
         this.displayLibrary();
     }
     
@@ -106,63 +108,22 @@ public class Library {
         
         return prime;
     }
-    
-    private void mergeSortBooks(ArrayList<Book> books, int start, int end) {
-        // base case
-        if (start == end) {
-            return;
-        }
         
-        int mid = (start + end) / 2;
-        
-        // sort left side
-        mergeSortBooks(books, start, mid);
-        // sort right side
-        mergeSortBooks(books, mid + 1, end);
-        
-        // merge part begins
-        int left = start;
-        int right = mid + 1;
-        int index = 0;
-        Book[] temp = new Book[end - start + 1];
-        
-        while (left <= mid && right <= end) {
-            if (books.get(left).compareTo(books.get(right)) <= 0) {
-                temp[index] = books.get(left);
-                left++;
-                index++;
-            }
-            else {
-                temp[index] = books.get(right);
-                right++;
-                index++;
-            }
-        }
-        
-        // copy over remaining left side, if any
-        while (left <= mid) {
-            temp[index] = books.get(left);
-            left++;
-            index++;
-        }
-        // copy over remaining right side, if any
-        while (right <= end) {
-            temp[index] = books.get(right);
-            right++;
-            index++;
-        }
-        
-        // copy back to original array
-        for (int i = 0; i < index; i++) {
-            books.set(start + i, temp[i]);
-        }
-    }    
-    
     public void displayLibrary() {
         System.out.println("Books in the library, sorted by title:");
         for (Book book: this.books) {
             book.display();
             System.out.println();
         }
+    }
+}
+
+// Comparator for sorting Books
+// reference:
+// https://www.geeksforgeeks.org/comparator-interface-java/
+class SortBookByTitleComparator implements Comparator<Book> {
+    
+    public int compare(Book a, Book b) {
+        return a.getTitle().compareTo(b.getTitle());
     }
 }
