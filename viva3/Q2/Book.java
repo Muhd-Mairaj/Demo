@@ -5,13 +5,11 @@ public class Book {
     private String title;
     private String author;
     private String ISBN;
-    private boolean borrowed;
     
     public Book(String title, String author, String ISBN) {
         this.title = title;
         this.author = author;
         this.ISBN = ISBN;
-        this.borrowed = false;
     }
     
     public String getTitle() {
@@ -26,10 +24,6 @@ public class Book {
         return this.ISBN;
     }
     
-    public boolean getBorrowed() {
-        return this.borrowed;
-    }
-    
     public void setTitle(String title) {
         this.title = title;
     }
@@ -42,10 +36,6 @@ public class Book {
         this.ISBN = ISBN;
     }
     
-    public void setBorrowed(boolean borrowed) {
-        this.borrowed = borrowed;
-    }
-    
     public int compareTo(Book book) {
         return this.title.compareTo(book.title);
     }
@@ -54,7 +44,6 @@ public class Book {
         System.out.println("- Title: " + this.title);
         System.out.println("  Author: " + this.author);
         System.out.println("  ISBN: " + this.ISBN);
-//        System.out.println("Borrowed: " + this.borrowed);
     }
     
     public String toString() {
