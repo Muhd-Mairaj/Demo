@@ -37,10 +37,9 @@ public class Library {
     }
     
     public boolean borrowBook(String ISBN) {
-        int d1 = ISBN.charAt(ISBN.length()-1) - '0';
-        int d2 = ISBN.charAt(ISBN.length()-2) - '0';
+        int d = Integer.parseInt(ISBN.substring(ISBN.length() - 2));
         
-        if (isPrime(d1) || isPrime(d2)) {
+        if (isPrime(d)) {
             return false;
         }
         
@@ -56,6 +55,7 @@ public class Library {
         
         return false;
     }
+
     
     public void returnBook(Book book) {
         Book b = this.findBooksByTitle(book.getTitle());
