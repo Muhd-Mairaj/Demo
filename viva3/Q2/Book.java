@@ -45,8 +45,4 @@ public class Book {
         System.out.println("  Author: " + this.author);
         System.out.println("  ISBN: " + this.ISBN);
     }
-    
-    public String toString() {
-        return String.format("Book[%s]", this.ISBN);
-    }
 }
