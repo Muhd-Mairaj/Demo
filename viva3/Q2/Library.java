@@ -45,10 +45,6 @@ public class Library {
         
         for (Book book: this.books) {
             if (book.getISBN().equals(ISBN)) {
-                if (book.getBorrowed()) { //  check if the book is already borrowed
-                    return false;
-                }
-                book.setBorrowed(true);
                 return true;
             }
         }
@@ -62,8 +58,6 @@ public class Library {
         if (b == null) {
             return;
         }
-        
-        b.setBorrowed(false);
     }
     
     public void addBook(Book book) {
