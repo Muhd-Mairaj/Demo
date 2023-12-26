@@ -51,14 +51,6 @@ public class Library {
         
         return false;
     }
-
-    
-    public void returnBook(Book book) {
-        Book b = this.findBooksByTitle(book.getTitle());
-        if (b == null) {
-            return;
-        }
-    }
     
     public void addBook(Book book) {
         this.books.add(book);
