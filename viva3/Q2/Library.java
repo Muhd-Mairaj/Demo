@@ -37,7 +37,7 @@ public class Library {
     }
     
     public boolean borrowBook(String ISBN) {
-        int d = Integer.parseInt(ISBN.substring(ISBN.length() - 2));
+        int d = Integer.parseInt(ISBN) % 100;
         
         if (isPrime(d)) {
             return false;
