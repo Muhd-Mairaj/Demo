@@ -36,10 +36,6 @@ public class Book {
         this.ISBN = ISBN;
     }
     
-    public int compareTo(Book book) {
-        return this.title.compareTo(book.title);
-    }
-    
     public void display() {
         System.out.println("- Title: " + this.title);
         System.out.println("  Author: " + this.author);
